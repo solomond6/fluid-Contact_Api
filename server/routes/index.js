@@ -2,9 +2,10 @@ const usersController = require('../controllers').users;
 
 module.exports = (app) => {
     app.get('/api', (req, res) => res.status(200).send({
-        message: 'Welcome to the Todos API!',
+        message: 'Welcome to the Fluid Contact API!',
     }));
 
     app.post('/api/user/signup', usersController.signup);
     app.post('/api/user/signin', usersController.signin);
+    app.post('/api/user/forgotpassword', usersController.forgotpassword);
 };

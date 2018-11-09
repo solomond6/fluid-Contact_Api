@@ -5,6 +5,7 @@ const nodemailer = require("nodemailer");
 
 let secretkey = "supersecret";
 
+//declaring the mail transport class
 let transporter = nodemailer.createTransport({
  service: 'gmail',
  auth: {
@@ -13,6 +14,8 @@ let transporter = nodemailer.createTransport({
     }
 });
 
+
+//sending the mail to users 
 const mailOptions = {
   from: 'sender@email.com', // sender address
   to: 'temisolo17@gmail.com', // list of receivers
@@ -22,6 +25,7 @@ const mailOptions = {
 
 module.exports = {
 
+    //method to create/signup users
     signup(req, res) {
         return Users
             .create({
@@ -34,6 +38,7 @@ module.exports = {
             .catch(error => res.status(400).send(error));
     },
 
+    //method for users to signin
     signin(req, res) {
         return Users
             .findOne({
@@ -42,18 +47,23 @@ module.exports = {
                 }
             })
             .then(users => {
+
+                //comparing the provided password with the encrypted password
                 if (bcrypt.compareSync(req.body.password, users.password)) {
+                    
+                    //calling jwt to return the login token
                     let token = jwt.sign({ id: users.id, email: users.email }, secretkey, { expiresIn: 86400 });
+                    
                     return res.status(200).send({ status: "ok", id: users.id, email: users.email, token: token });
                 } else {
                     return res.status(400).send("Invalid Password");
                 }
             })
-            //.then(users => res.status(200).send(users))
             .catch(error => res.status(400).send(error));
     },
 
     forgotpassword(req, res) {
+        //search for the user email address
         return Users
             .findOne({
                 where: {
@@ -61,6 +71,8 @@ module.exports = {
                 }
             })
             .then(users => {
+
+                //calling the mail class
                 transporter.sendMail(mailOptions, function (err, info) {
                     if(info){
                         console.log(info);
@@ -73,7 +85,6 @@ module.exports = {
                         
                 });
             })
-            //.then(users => res.status(200).send(users))
             .catch(error => res.status(400).send(error));
     },
 

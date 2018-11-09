@@ -1,26 +1,27 @@
 {
     "development": {
-        "username": "postgres",
-        "password": "root",
-        "database": "fluid_contact_db",
-        "host": "127.0.0.1",
+        "username": "dasfobevaabuae",
+        "password": "7e3fe9d0eb29275b2cda33d227308de5cd4039304f5c14e2f6d3fe8caa33fcbb",
+        "database": "dde6f3ice7npa",
+        "host": "ec2-23-23-153-145.compute-1.amazonaws.com",
         "port": 5432,
         "dialect": "postgres"
     },
     "test": {
         "username": "postgres",
         "password": "root",
-        "database": "fluid_contact_db",
+        "database": "dde6f3ice7npa",
+        //"database": "fluid_contact_db",
         "host": "127.0.0.1",
         "port": 5432,
         "dialect": "postgres"
     },
-    "production": {
-        "username": "postgres",
-        "password": null,
-        "database": "fluid_contact_db",
-        "host": "127.0.0.1",
+    "development": {
+        "username": "dasfobevaabuae",
+        "password": "7e3fe9d0eb29275b2cda33d227308de5cd4039304f5c14e2f6d3fe8caa33fcbb",
+        "database": "dde6f3ice7npa",
+        "host": "ec2-23-23-153-145.compute-1.amazonaws.com",
         "port": 5432,
         "dialect": "postgres"
-    }
+    },
 }

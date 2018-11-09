@@ -63,6 +63,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true,
         },
+        rating: {
+            type: DataTypes.TINYINT,
+            allowNull: true,
+        },
     });
 
     return Contacts;

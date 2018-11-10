@@ -64,7 +64,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true,
         },
         rating: {
-            type: DataTypes.TINYINT,
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
     });

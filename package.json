@@ -1,7 +1,7 @@
 {
-    "name": "postgres-express-react-node-tutorial",
+    "name": "fluid-contact-api",
     "version": "1.0.0",
-    "description": "",
+    "description": "FluidAngle Technical Challenge",
     "main": "index.js",
     "scripts": {
         "start:dev": "nodemon ./bin/www",
@@ -26,5 +26,11 @@
     },
     "devDependencies": {
         "nodemon": "^1.18.6"
-    }
+    },
+    "keywords": [
+        "node",
+        "heroku",
+        "express"
+    ],
+    "license": "MIT"
 }

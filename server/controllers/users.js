@@ -54,12 +54,12 @@ module.exports = {
                     //calling jwt to return the login token
                     let token = jwt.sign({ id: users.id, email: users.email }, secretkey, { expiresIn: 86400 });
                     
-                    return res.status(200).send({ status: "ok", id: users.id, email: users.email, token: token });
+                    return res.status(200).send({ status: true, id: users.id, email: users.email, token: token });
                 } else {
-                    return res.status(400).send("Invalid Password");
+                    return res.status(400).send({status: false, message: "Email/Password Invalid"});
                 }
             })
-            .catch(error => res.status(400).send(error));
+            .catch(error => res.status(400).send({status: false, message: "Email/Password Invalid"}));
     },
 
     forgotpassword(req, res) {

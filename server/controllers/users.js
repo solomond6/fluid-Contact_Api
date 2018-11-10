@@ -51,7 +51,7 @@ module.exports = {
                 if (bcrypt.compareSync(req.body.password, users.password)) {
                     
                     //calling jwt to return the login token
-                    let token = jwt.sign({ id: users.id, email: users.username }, secretkey, { expiresIn: 86400 });
+                    let token = jwt.sign({ id: users.id, username: users.username }, secretkey, { expiresIn: 86400 });
                     
                     return res.status(200).send({ status: true, id: users.id, username: users.username, token: token });
                 } else {

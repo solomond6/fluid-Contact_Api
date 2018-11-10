@@ -1,25 +1,25 @@
 {
     "development": {
-        "username": "dasfobevaabuae",
-        "password": "7e3fe9d0eb29275b2cda33d227308de5cd4039304f5c14e2f6d3fe8caa33fcbb",
-        "database": "dde6f3ice7npa",
-        "host": "ec2-23-23-153-145.compute-1.amazonaws.com",
+        "username": "pipteqbvhizovb",
+        "password": "ff2f4b55182cd15084abf1480171f10840cf293ae002c07ae95a9c1466171665",
+        "database": "d4hneti0befnme",
+        "host": "ec2-54-204-14-96.compute-1.amazonaws.com",
         "port": 5432,
         "dialect": "postgres"
     },
     "test": {
-        "username": "dasfobevaabuae",
-        "password": "7e3fe9d0eb29275b2cda33d227308de5cd4039304f5c14e2f6d3fe8caa33fcbb",
-        "database": "dde6f3ice7npa",
-        "host": "ec2-23-23-153-145.compute-1.amazonaws.com",
+        "username": "pipteqbvhizovb",
+        "password": "ff2f4b55182cd15084abf1480171f10840cf293ae002c07ae95a9c1466171665",
+        "database": "d4hneti0befnme",
+        "host": "ec2-54-204-14-96.compute-1.amazonaws.com",
         "port": 5432,
         "dialect": "postgres"
     },
     "production": {
-        "username": "dasfobevaabuae",
-        "password": "7e3fe9d0eb29275b2cda33d227308de5cd4039304f5c14e2f6d3fe8caa33fcbb",
-        "database": "dde6f3ice7npa",
-        "host": "ec2-23-23-153-145.compute-1.amazonaws.com",
+        "username": "pipteqbvhizovb",
+        "password": "ff2f4b55182cd15084abf1480171f10840cf293ae002c07ae95a9c1466171665",
+        "database": "d4hneti0befnme",
+        "host": "ec2-54-204-14-96.compute-1.amazonaws.com",
         "port": 5432,
         "dialect": "postgres"
     }

@@ -58,7 +58,7 @@ module.exports = {
                     return res.status(400).send({status: false, message: "Username/Password Invalid"});
                 }
             })
-            .catch(error => res.status(400).send({status: false, message: "Username/Password Invalid"}));
+            .catch(error => res.status(400).send(error));
     },
 
     forgotpassword(req, res) {

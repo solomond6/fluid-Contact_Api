@@ -43,7 +43,8 @@ module.exports = {
             .findOne({
                 where: {
                     username: req.body.username,
-                }
+                },
+                attributes : ['id', 'username','email', 'password']
             })
             .then(users => {
 

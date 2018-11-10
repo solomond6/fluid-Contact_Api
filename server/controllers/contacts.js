@@ -48,7 +48,9 @@ module.exports = {
                 } else {
                     req.userId = decoded.id;
                     return Contacts
-                        .findAll()
+                        .findAll({
+                            attributes : ['id', 'title','firstname', 'lastname', 'email', 'phone_number', 'address', 'rating']
+                        })
                         .then(contacts => res.status(200).send(contacts))
                         .catch(error => res.status(400).send(error));
                 }
@@ -113,6 +115,37 @@ module.exports = {
                                     email: req.body.email || contact.email,
                                     phone_number: req.body.phone_number || contact.phone_number,
                                     address: req.body.address || contact.address
+                                })
+                                .then(() => res.status(200).send(contact)) // Send back the updated todo.
+                                .catch((error) => res.status(400).send(error));
+                        })
+                        .catch((error) => res.status(400).send(error));
+                }
+            });
+        }
+    },
+
+    updatestar(req, res) {
+        //getting the token form the request header or request body
+        let token = req.body.token || req.query.token || req.headers['token'] || req.headers['x-access-token'];
+        if (!token) {
+            return res.status(403).send({ auth: false, message: 'No token provided.' });
+        } else {
+            jwt.verify(token, secretkey, function(err, decoded) {
+                if (err) {
+                    return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+                } else {
+                    return Contacts
+                        .findById(req.params.contactId)
+                        .then(contact => {
+                            if (!contact) {
+                                return res.status(404).send({
+                                    message: 'Contact Not Found',
+                                });
+                            }
+                            return contact
+                                .update({
+                                    rating: req.body.star || contact.star,
                                 })
                                 .then(() => res.status(200).send(contact)) // Send back the updated todo.
                                 .catch((error) => res.status(400).send(error));

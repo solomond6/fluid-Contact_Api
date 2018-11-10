@@ -15,4 +15,5 @@ module.exports = (app) => {
     app.get('/api/contact/:contactId', contactsController.retrieve);
     app.patch('/api/contact/:contactId', contactsController.update);
     app.delete('/api/contact/:contactId', contactsController.destroy);
+    app.patch('/api/contact/:contactId/star', contactsController.updatestar);
 };

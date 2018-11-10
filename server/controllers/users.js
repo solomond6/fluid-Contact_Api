@@ -42,7 +42,7 @@ module.exports = {
         return Users
             .findOne({
                 where: {
-                    email: req.body.email,
+                    username: req.body.username,
                 }
             })
             .then(users => {

@@ -29,8 +29,7 @@ module.exports = {
     signup(req, res) {
         return Users
             .create({
-                firstname: req.body.firstname,
-                lastname: req.body.lastname,
+                username: req.body.username,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
             })
@@ -52,14 +51,14 @@ module.exports = {
                 if (bcrypt.compareSync(req.body.password, users.password)) {
                     
                     //calling jwt to return the login token
-                    let token = jwt.sign({ id: users.id, email: users.email }, secretkey, { expiresIn: 86400 });
+                    let token = jwt.sign({ id: users.id, email: users.username }, secretkey, { expiresIn: 86400 });
                     
-                    return res.status(200).send({ status: true, id: users.id, email: users.email, token: token });
+                    return res.status(200).send({ status: true, id: users.id, username: users.username, token: token });
                 } else {
-                    return res.status(400).send({status: false, message: "Email/Password Invalid"});
+                    return res.status(400).send({status: false, message: "Username/Password Invalid"});
                 }
             })
-            .catch(error => res.status(400).send({status: false, message: "Email/Password Invalid"}));
+            .catch(error => res.status(400).send({status: false, message: "Username/Password Invalid"}));
     },
 
     forgotpassword(req, res) {
